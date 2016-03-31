@@ -316,10 +316,10 @@ static void sAppendPrintF(std::string &str,const char *format,...)
   va_list arg;
 
   va_start(arg,format);
-  _vsnprintf(buffer,bufferSize-1,format,arg);
+  _vsnprintf_s(buffer,bufferSize-1,format,arg);
   va_end(arg);
 
-  strcpy(&buffer[bufferSize-4],"...");
+  strcpy_s(&buffer[bufferSize-4],4,"...");
   str += buffer;
 }
 
